@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
+		<!-- <meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+		<meta charset="utf-8">
+		<title>DurgerKingExampleBot</title>
+		<meta name="viewport"
+					content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="MobileOptimized" content="176"/>
+		<meta name="HandheldFriendly" content="True"/>
+		<meta name="robots" content="noindex, nofollow"/>
+		<script src="https://tg.dev/js/telegram-web-app.js?7"></script>
+		<script>
+					function setThemeClass() {
+							document.documentElement.className = Telegram.WebApp.colorScheme;
+					}
+	
+					Telegram.WebApp.onEvent('themeChanged', setThemeClass);
+					setThemeClass();
+		</script>
+		<link href="css/cafe.css" rel="stylesheet">
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
+		<script src="https://tg.dev/js/jquery.min.js"></script>
+		<script src="https://tg.dev/js/tgsticker.js?27"></script>
 	</body>
 </html>
