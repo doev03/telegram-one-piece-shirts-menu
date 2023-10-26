@@ -9,13 +9,13 @@
 
 </script>
 
-<div class="product-item js-item">
+<div class="product-item">
 	{#if count > 0}
 		<div class="counter">{count}</div>
 	{/if}
-	<div class="cafe-item-photo">
-		<picture class="cafe-item-lottie js-item-lottie">
-			<img class="skeleton photo" src={data.image} alt={data.title} />
+	<div class="photo">
+		<picture class="photo">
+			<img class="photo-img" src={data.image} alt={data.title} />
 		</picture>
 	</div>
 	<div class="cafe-item-label">
@@ -26,12 +26,10 @@
 		{#if count > 0}
 		<button class="button-item decr-button" on:click={decr}>
 			<span class="button-item-label">-</span>
-			<span class="ripple-mask"><span class="ripple" /></span>
 		</button>
 		{/if}
 		<button class="button-item incr-button" on:click={incr}>
 			<span class="button-item-label">+</span>
-			<span class="ripple-mask"><span class="ripple" /></span>
 		</button>
 	</div>
 </div>
@@ -67,21 +65,23 @@
 </style> -->
 
 <style>
-	.product-item,
-	.product-item-shadow {
+	.cafe-item-label {
+		margin: auto;
+		padding: 0px 16px;
+	}
+	.cafe-item-title {
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.product-item {
+		background-color: red;
 		position: relative;
-		width: 120px;
-		height: 159px;
+		width: 240px;
+		height: 360px;
 		padding: 4px 5px 21px;
 		box-sizing: border-box;
 		text-align: center;
 	}
-	.product-item-shadow {
-		height: 0;
-		padding: 0;
-		margin: 0;
-	}
-
 	.counter {
 		--min-size: 18px;
 
@@ -98,14 +98,28 @@
 		line-height: var(--min-size);
 		color: #fff;
 	}
-
 	.button-item {
 		flex: 50%;
 		padding: 0;
 	}
-
 	.decr-button {
 		background-color: var(--error-color);
 		margin: 0 4px 0px 0px;
+	}
+	.button-item-label {
+		font-size: 24px;
+		height: 24px;
+	}
+	.photo {
+		margin: auto;
+		height: 300px;
+		overflow: hidden;
+	}
+	.photo-img {
+		width: 100%;
+		height: 100%;
+	}
+	img {
+		object-fit: cover;
 	}
 </style>
