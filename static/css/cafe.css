@@ -20,6 +20,7 @@ body {
   --status-height: 48px;
   --accent-color: #31b545;
   --main-color: #f8a917;
+  --error-color: #ed4337;
   --text-color: #222;
   --page-hint-color: #83878a;
   --hint-color: #74787a;
@@ -76,20 +77,6 @@ body.order-mode .cafe-items {
 .cafe-items:after {
   content: '';
   flex-grow: 2;
-}
-.cafe-item,
-.cafe-item-shadow {
-  position: relative;
-  width: 120px;
-  height: 159px;
-  padding: 4px 5px 21px;
-  box-sizing: border-box;
-  text-align: center;
-}
-.cafe-item-shadow {
-  height: 0;
-  padding: 0;
-  margin: 0;
 }
 .cafe-item-photo {
   position: relative;
@@ -152,9 +139,6 @@ body.order-mode .cafe-items {
 }
 button {
   cursor: pointer;
-}
-button,
-.cafe-item-counter {
   display: inline-block;
   font-family: var(--default-font);
   font-weight: 700;
@@ -485,76 +469,3 @@ body.loading .loading-icon {
   --radius: 9px;
 }
 
-@-webkit-keyframes rotate-circle {
-  from { transform: rotateZ(-90deg); }
-  to   { transform: rotateZ(630deg); }
-}
-@keyframes rotate-circle {
-  from { transform: rotateZ(-90deg); }
-  to   { transform: rotateZ(630deg); }
-}
-
-@-webkit-keyframes resize-circle {
-  from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: 12500px; }
-}
-@keyframes resize-circle {
-  from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: 12500px; }
-}
-
-@-webkit-keyframes badge-incr {
-  from, to { transform: scale3d(1, 1, 1); }
-  40% { transform: scale3d(1.2, 1.2, 1); }
-}
-@keyframes badge-incr {
-  from, to { transform: scale3d(1, 1, 1); }
-  40% { transform: scale3d(1.2, 1.2, 1); }
-}
-
-@-webkit-keyframes badge-incr2 {
-  from, to { transform: scale3d(1, 1, 1); }
-  40% { transform: scale3d(1.2, 1.2, 1); }
-}
-@keyframes badge-incr2 {
-  from, to { transform: scale3d(1, 1, 1); }
-  40% { transform: scale3d(1.2, 1.2, 1); }
-}
-
-@-webkit-keyframes badge-decr {
-  from, to { transform: scale3d(1, 1, 1); }
-  40% { transform: scale3d(0.8, 0.8, 1); }
-}
-@keyframes badge-decr {
-  from, to { transform: scale3d(1, 1, 1); }
-  40% { transform: scale3d(0.8, 0.8, 1); }
-}
-
-@-webkit-keyframes badge-decr2 {
-  from, to { transform: scale3d(1, 1, 1); }
-  40% { transform: scale3d(0.8, 0.8, 1); }
-}
-@keyframes badge-decr2 {
-  from, to { transform: scale3d(1, 1, 1); }
-  40% { transform: scale3d(0.8, 0.8, 1); }
-}
-
-@-webkit-keyframes badge-show {
-  from { transform: scale3d(0.5, 0.5, 1); opacity: 0; visibility: hidden; }
-  30%  { transform: scale3d(1.2, 1.2, 1); }
-  to   { transform: scale3d(1, 1, 1); opacity: 1; visibility: visible; }
-}
-@keyframes badge-show {
-  from { transform: scale3d(0.5, 0.5, 1); opacity: 0; visibility: hidden; }
-  30%  { transform: scale3d(1.2, 1.2, 1); }
-  to   { transform: scale3d(1, 1, 1); opacity: 1; visibility: visible; }
-}
-
-@-webkit-keyframes badge-hide {
-  from { transform: scale3d(1, 1, 1); opacity: 1; visibility: visible; }
-  to   { transform: scale3d(0.5, 0.5, 1); opacity: 0; visibility: hidden; }
-}
-@keyframes badge-hide {
-  from { transform: scale3d(1, 1, 1); opacity: 1; visibility: visible; }
-  to   { transform: scale3d(0.5, 0.5, 1); opacity: 0; visibility: hidden; }
-}
