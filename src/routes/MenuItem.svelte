@@ -13,7 +13,7 @@
 	{#if count > 0}
 		<div class="counter">{count}</div>
 	{/if}
-	<div class="photo">
+	<div class="photo-box">
 		<picture class="photo">
 			<img class="photo-img" src={data.image} alt={data.title} />
 		</picture>
@@ -74,9 +74,9 @@
 		text-overflow: ellipsis;
 	}
 	.product-item {
-		background-color: red;
+		background-color: rgba(255, 0, 0, 0.2);;
 		position: relative;
-		width: 240px;
+		width: 50%;
 		height: 360px;
 		padding: 4px 5px 21px;
 		box-sizing: border-box;
@@ -110,10 +110,11 @@
 		font-size: 24px;
 		height: 24px;
 	}
-	.photo {
+	.photo-box {
 		margin: auto;
 		height: 300px;
 		overflow: hidden;
+		border-radius: var(--primary-radius);
 	}
 	.photo-img {
 		width: 100%;
