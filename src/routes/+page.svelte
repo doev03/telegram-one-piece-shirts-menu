@@ -12,9 +12,6 @@
 	const items = [item, item, item, item, item, item, item];
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-
 <section class="cafe-page cafe-items">
 	{#each items as item}
 		<MenuItem data={item} />
@@ -25,9 +22,9 @@
 	.cafe-items {
 		display: flex;
 		flex-wrap: wrap;
-		margin: 0 auto;
-		max-width: 480px;
-		justify-content: space-around;
+		margin: 16px;
+		gap: 24px;
+		max-width: max-content;
 		align-content: flex-end;
 		transition: max-height var(--page-animation), opacity var(--page-animation);
 		background-color: var(--block-bg-color);

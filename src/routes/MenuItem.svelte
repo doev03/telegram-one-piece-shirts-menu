@@ -6,113 +6,70 @@
 	let count = 0;
 	const incr = () => count++;
 	const decr = () => count--;
-
 </script>
 
 <div class="product-item">
-	{#if count > 0}
-		<div class="counter">{count}</div>
-	{/if}
 	<div class="photo-box">
+		<div class="shadow-box price-box">
+			<span class="price-label">{data.price} ₽</span>
+		</div>
+		{#if count > 0}
+			<div class="shadow-box counter-box">
+				<span class="counter-label">{count}</span>
+			</div>
+		{/if}
 		<picture class="photo">
 			<img class="photo-img" src={data.image} alt={data.title} />
 		</picture>
 	</div>
-	<div class="cafe-item-label">
-		<span class="cafe-item-title">{data.title}</span>
-		<span class="cafe-item-price">{data.price}</span>
-	</div>
-	<div class="cafe-item-buttons">
+	<div class="counter-buttons">
 		{#if count > 0}
-		<button class="button-item decr-button" on:click={decr}>
-			<span class="button-item-label">-</span>
-		</button>
+			<button class="button-item decr-button" on:click={decr}>
+				<span class="button-item-label">-</span>
+			</button>
 		{/if}
 		<button class="button-item incr-button" on:click={incr}>
-			<span class="button-item-label">+</span>
+			<span class="button-item-label {count > 0 ? "" : "full-add-button"}">
+				{#if count > 0}
+					+
+				{:else}
+					Добавить
+				{/if}
+			</span>
 		</button>
 	</div>
 </div>
 
-<!-- <style>
-	:root {
-		--loading-grey: #ededed;
-	}
-
-	.photo {
-		border-radius: 10px;
-	}
-
-	.skeleton {
-		background-color: var(--loading-grey);
-		background: linear-gradient(
-				100deg,
-				rgba(255, 255, 255, 0) 40%,
-				rgba(255, 255, 255, 0.5) 50%,
-				rgba(255, 255, 255, 0) 60%
-			)
-			var(--loading-grey);
-		background-size: 200% 100%;
-		background-position-x: 180%;
-		animation: 1s skeleton ease-in-out infinite;
-	}
-
-	@keyframes skeleton {
-		to {
-			background-position-x: -20%;
-		}
-	}
-</style> -->
-
 <style>
-	.cafe-item-label {
-		margin: auto;
-		padding: 0px 16px;
-	}
-	.cafe-item-title {
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
 	.product-item {
-		background-color: rgba(255, 0, 0, 0.2);;
 		position: relative;
-		width: 50%;
-		height: 360px;
-		padding: 4px 5px 21px;
+		width: calc(50% - 12px);
 		box-sizing: border-box;
 		text-align: center;
 	}
-	.counter {
-		--min-size: 18px;
-
-		position: absolute;
-		right: 0%;
-		min-width: var(--min-size);
-		min-height: var(--min-size);
-		padding: 4px;
-		border-radius: 50%;
-		background-color: var(--main-color);
-		font-family: var(--default-font);
-		font-weight: 700;
-		font-size: 14px;
-		line-height: var(--min-size);
-		color: #fff;
+	.counter-buttons {
+		display: flex;
+		margin: 8px 16px 0 16px;
 	}
 	.button-item {
 		flex: 50%;
 		padding: 0;
+		height: 32px;
 	}
 	.decr-button {
 		background-color: var(--error-color);
-		margin: 0 4px 0px 0px;
+		margin: 0 8px 0px 0px;
 	}
 	.button-item-label {
 		font-size: 24px;
-		height: 24px;
+	}
+	.full-add-button {
+		font-size: 18px;
 	}
 	.photo-box {
 		margin: auto;
-		height: 300px;
+		width: 100%;
+		aspect-ratio: 2/3;
 		overflow: hidden;
 		border-radius: var(--primary-radius);
 	}
@@ -122,5 +79,23 @@
 	}
 	img {
 		object-fit: cover;
+	}
+	.shadow-box {
+		background-color: var(--shadow);
+		padding: 4px 8px;
+		color: var(--on-primary);
+		font-weight: 600;
+	}
+	.counter-box {
+		position: absolute;
+		right: 0;
+		top: 0;
+		border-radius: 0px 10px 0px 10px;
+	}
+	.price-box {
+		position: absolute;
+		left: 0;
+		top: 0;
+		border-radius: 10px 0px 10px 0px;
 	}
 </style>
