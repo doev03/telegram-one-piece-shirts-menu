@@ -5,13 +5,14 @@
 
 	const item: ProductModel = {
 		title: 'Burger',
-		price: 4.99,
+		price: 1500,
 		image: burgerImage
 	};
 
 	const items = [item, item, item, item, item, item, item];
 </script>
 
+<button on:click={window.Telegram.WebApp.MainButton.show}></button>
 <section class="cafe-page cafe-items">
 	{#each items as item}
 		<MenuItem data={item} />

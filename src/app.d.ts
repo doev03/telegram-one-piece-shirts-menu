@@ -1,4 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
+
+import type { Telegram } from "@twa-dev/types";
+
 // for information about these interfaces
 declare global {
 	namespace App {
@@ -7,6 +10,9 @@ declare global {
 		// interface PageData {}
 		// interface Platform {}
 	}
+	interface Window {
+		Telegram: Telegram;
+	}
 }
 
-export {};
+

@@ -85,6 +85,7 @@
 		padding: 4px 8px;
 		color: var(--on-primary);
 		font-weight: 600;
+		font-size: 16px;
 	}
 	.counter-box {
 		position: absolute;
