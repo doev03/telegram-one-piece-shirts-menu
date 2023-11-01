@@ -1,11 +1,10 @@
 <script lang="ts">
-	import type { ProductModel } from './models';
+	import type { ProductModel } from "$lib/models/models";
 
 	export let data: ProductModel;
-
-	let count = 0;
-	const incr = () => count++;
-	const decr = () => count--;
+	export let count: number;
+	export let onIncr: VoidFunction;
+	export let onDecr: VoidFunction;
 </script>
 
 <div class="product-item">
@@ -22,21 +21,8 @@
 			<img class="photo-img" src={data.image} alt={data.title} />
 		</picture>
 	</div>
-	<div class="counter-buttons">
-		{#if count > 0}
-			<button class="button-item decr-button" on:click={decr}>
-				<span class="button-item-label">-</span>
-			</button>
-		{/if}
-		<button class="button-item incr-button" on:click={incr}>
-			<span class="button-item-label {count > 0 ? "" : "full-add-button"}">
-				{#if count > 0}
-					+
-				{:else}
-					Добавить
-				{/if}
-			</span>
-		</button>
+	<div class="title">
+		<span>{data.title}</span>
 	</div>
 </div>
 
@@ -69,7 +55,7 @@
 	.photo-box {
 		margin: auto;
 		width: 100%;
-		aspect-ratio: 2/3;
+		aspect-ratio: 3/4;
 		overflow: hidden;
 		border-radius: var(--primary-radius);
 	}
@@ -85,7 +71,7 @@
 		padding: 4px 8px;
 		color: var(--on-primary);
 		font-weight: 600;
-		font-size: 16px;
+		font-size: 12px;
 	}
 	.counter-box {
 		position: absolute;
@@ -98,5 +84,11 @@
 		left: 0;
 		top: 0;
 		border-radius: 10px 0px 10px 0px;
+	}
+	.title {
+		color: var(--on-background);
+		font-size: 14px;
+		font-weight: 700;
+		margin: 4px 0 4px 0;
 	}
 </style>

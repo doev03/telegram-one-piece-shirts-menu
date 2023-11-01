@@ -1,21 +1,27 @@
 <script lang="ts">
+	import type { ProductModel } from '$lib/models/models';
+	import { Store } from '$lib/store';
 	import MenuItem from './MenuItem.svelte';
-	import burgerImage from '$lib/img/shirt_example.png';
-	import type { ProductModel } from './models';
+	import { fly } from 'svelte/transition';
 
-	const item: ProductModel = {
-		title: 'Burger',
-		price: 1500,
-		image: burgerImage
-	};
+	const items = Store.instance.products;
 
-	const items = [item, item, item, item, item, item, item];
+	let count = 0;
+	const incr = (data: ProductModel) => {
+		count++;
+	}
+	const decr = (data: ProductModel) => {
+		count--;
+	}
+	const toggle = () => {
+		const store = Store.instance;
+		store.toggleMode(!store.modeOrder);
+	}
 </script>
 
-<button on:click={window.Telegram.WebApp.MainButton.show}></button>
-<section class="cafe-page cafe-items">
+<section class="cafe-page cafe-items" transition:fly={{}} >
 	{#each items as item}
-		<MenuItem data={item} />
+		<MenuItem data={item} onIncr={() => incr(item)} onDecr={() => decr(item)} count={count}/>
 	{/each}
 </section>
 

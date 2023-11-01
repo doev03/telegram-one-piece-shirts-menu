@@ -64,6 +64,10 @@ body.closed .cafe-page {
   box-shadow: 0 0.5px rgba(0, 0, 0, .07);
 }
 
+body.order-mode .cafe-items {
+  max-height: 0 !important;
+  opacity: 0 !important;
+}
 .cafe-item-photo {
   position: relative;
   height: 78px;

@@ -30,6 +30,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@twa-dev/types": "^6.9.0"
+		"@twa-dev/types": "^6.9.0",
+		"@types/jquery": "^3.5.25",
+		"jquery": "^3.7.1"
 	}
 }
