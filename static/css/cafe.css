@@ -13,6 +13,7 @@ body {
 
   --primary: #f8a917;
   --on-primary: #fff;
+  --on-background: #fff;
   --shadow: rgba(0, 0, 0, 0.5);
   --primary-radius: 10px;
   --default-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
