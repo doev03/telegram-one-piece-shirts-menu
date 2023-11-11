@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { ProductModel } from '$lib/models/models';
-	import { Store } from '$lib/store';
+	import { AppState } from '$lib/app_state';
 	import MenuItem from './MenuItem.svelte';
-	import { fly } from 'svelte/transition';
 
-	const items = Store.instance.products;
+	const appState = AppState.instance;
+	const items = appState.products;
 
 	let count = 0;
 	const incr = (data: ProductModel) => {
@@ -14,18 +14,23 @@
 		count--;
 	}
 	const toggle = () => {
-		const store = Store.instance;
-		store.toggleMode(!store.modeOrder);
+		//appState.toggleMode(!appState.modeOrder);
+	}
+	const onItemPressed = () => {
 	}
 </script>
 
-<section class="cafe-page cafe-items" transition:fly={{}} >
+<section class="cafe-page cafe-items">
 	{#each items as item}
-		<MenuItem data={item} onIncr={() => incr(item)} onDecr={() => decr(item)} count={count}/>
+		<MenuItem data={item} count={count} onClick={onItemPressed}/>
 	{/each}
 </section>
 
 <style>
+	.cafe-page {
+		position: relative;
+		margin: auto;
+	}
 	.cafe-items {
 		display: flex;
 		flex-wrap: wrap;

@@ -21,3 +21,15 @@ function split_css_unit(value : number | string) {
 	const split = typeof value === 'string' && value.match(/^\s*(-?[\d.]+)([^\s]*)\s*$/);
 	return split ? [parseFloat(split[1]), split[2] || 'px'] : [/** @type {number} */ (value), 'px'];
 }
+
+export const showTelegramMainButton = (params: {text: string, onClick: VoidFunction}) => {
+	const button = window.Telegram.WebApp.MainButton;
+	button.setText(params.text);
+	button.onClick(params.onClick);
+	button.show();
+}
+
+export const hideTelegramMainButton = () => {
+	const button = window.Telegram.WebApp.MainButton;
+	button.hide();
+}
